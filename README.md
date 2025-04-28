@@ -2,14 +2,13 @@
 This is helper javascript code that can be injected into store.steampowerd.com with an firefox extension called "Javascript".
 It speeds up the highlight carousel and adds a last visited checkbox.
 
-<code>HighlightPlayer.prototype.StartTimer = function()
-{
-	this.ClearInterval();
-	this.interval = window.setTimeout( $J.proxy( this.Transition, this ), 800 );
-}
-
-//nSaveDelay = 700; // 5 seconds
-
+<code>//add last visited checkbox
+const options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",	
+};
 var checkbox = document.createElement('input');
 checkbox.type = "checkbox";
 checkbox.id = "lastvisited";
@@ -28,8 +27,8 @@ div.appendChild(checkbox);
 checkbox.addEventListener('click', (event) => {
   if (event.currentTarget.checked) {
 		var newdate = new Date();
-		localStorage.setItem('lastvisited ' + window.location.href, newdate);
-	  div.innerHTML = HTML + newdate + " ";
+		localStorage.setItem('lastvisited ' + window.location.href, newdate.toLocaleDateString("en-US", options));
+	  div.innerHTML = HTML + newdate.toLocaleDateString("en-US", options) + " ";
 	  div.appendChild(checkbox);
   } else {
     localStorage.removeItem('lastvisited ' + window.location.href);
@@ -38,7 +37,43 @@ checkbox.addEventListener('click', (event) => {
   }
 })
 
+//add VR Follow checkbox
+var checkbox2 = document.createElement('input');
+checkbox2.type = "checkbox";
+checkbox2.id = "VR";
+var div2 = document.getElementById('glanceCtnResponsiveRight');
+var HTML2 = div2.innerHTML; 
+var lastvisited2 = localStorage.getItem('VR ' + window.location.href);
+if( lastvisited2 == null ){
+ //lastvisited2 = new Date();
+ checkbox2.checked = false;
+ div2.innerHTML += " ";
+}else{
+	checkbox2.checked = true;
+	div2.innerHTML += lastvisited2 + " ";	
+}
+div2.appendChild(checkbox2);
+checkbox2.addEventListener('click', (event) => {
+  if (event.currentTarget.checked) {
+		var newdate = new Date();
+		localStorage.setItem('VR ' + window.location.href, newdate.toLocaleDateString("en-US", options));
+	  div2.innerHTML = HTML2 + newdate.toLocaleDateString("en-US", options) + " ";
+	  div2.appendChild(checkbox2);
+  } else {
+    localStorage.removeItem('VR ' + window.location.href);
+		div2.innerHTML = HTML2 + " ";
+		div2.appendChild(checkbox2);
+  }
+})
 
+//Speed up carosel
+HighlightPlayer.prototype.StartTimer = function()
+{
+	this.ClearInterval();
+	this.interval = window.setTimeout( $J.proxy( this.Transition, this ), 800 );
+}
+
+//nSaveDelay = 700; // 5 seconds
 
 function InitHorizontalAutoSliders()
 {
