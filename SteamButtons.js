@@ -16,7 +16,6 @@ const options = {
   month: "long",
   day: "numeric",
 };
-var newdate = new Date();
 
 var div = document.getElementById('shareBtn');
 let HTML,lastvisited;
@@ -25,8 +24,8 @@ function addBtns() {
 
   lastvisited = localStorage.getItem('lastvisited ' + window.location.href.split('?')[0] );
   if( lastvisited == null ){
-    lastvisited = new Date();
-    localStorage.setItem('lastvisited ' + window.location.href.split('?')[0], newdate.toLocaleDateString("en-US", options));
+    lastvisited = new Date().toLocaleDateString("en-US", options);
+    localStorage.setItem('lastvisited ' + window.location.href.split('?')[0], lastvisited );
   }
 
   try{ document.getElementById("spBtn").remove();             }catch (e) {/*First time the function gets called -> Elements doesn't exist yet*/}
