@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Steam Buttons
-// @version      1.0
-// @description  description
+// @version      1.1
+// @description  Adds "Red Flags" and info for steam games closer to the top of the page, clicking on them jumps to that part of the page. Also adds a "First Viewed" local storage date for each steam page.
 // @match        https://store.steampowered.com/app/*
 // @grant        GM_addStyle
 // @grant        window.close
