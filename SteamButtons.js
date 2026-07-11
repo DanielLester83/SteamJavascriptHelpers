@@ -8,7 +8,7 @@
 // @grant        GM_addStyle
 // @grant        window.close
 // @run-at       document-idle
-// @updateURL    https://raw.githubusercontent.com/DanielLester83/SteamJavascriptHelpers/refs/heads/main/SteamButtons.js
+// @downloadURL  https://raw.githubusercontent.com/DanielLester83/SteamJavascriptHelpers/refs/heads/main/SteamButtons.js
 // ==/UserScript==
 
 const options = {
