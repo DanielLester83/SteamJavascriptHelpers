@@ -17,7 +17,7 @@ const options = {
   day: "numeric",
 };
 
-var div = document.getElementById('shareBtn');
+let div = document.getElementById('shareBtn');
 let HTML,lastvisited;
 
 function addBtns() {
