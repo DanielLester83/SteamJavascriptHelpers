@@ -9,7 +9,6 @@
 // @grant        window.close
 // @run-at       document-idle
 // @downloadURL  https://raw.githubusercontent.com/DanielLester83/SteamJavascriptHelpers/refs/heads/main/SteamButtons.js
-// @updateURL    https://raw.githubusercontent.com/DanielLester83/SteamJavascriptHelpers/refs/heads/main/SteamButtons.js
 // ==/UserScript==
 
 const options = {
