@@ -6,7 +6,7 @@
 // @grant        GM_addStyle
 // @grant        window.close
 // @run-at       document-idle
-// @updateURL    
+// @updateURL    https://github.com/DanielLester83/SteamJavascriptHelpers/blob/5879484cc4487416dc4366afa66e25a82c205f2b/SteamButtons.js
 // @version      1.0
 // @author       -
 // @description  11/26/2025, 9:14:05 PM
@@ -56,57 +56,4 @@ function addBtns() {
 
 }
 
-function makeShort() {
-
-  let name = document.getElementById('appHubAppName');
-  let diva = document.getElementById('glanceMidCtn');
-  let divb = document.getElementById('gameHeaderCtn');
-  let divc = document.getElementById('game_area_description');
-  let date = diva.getElementsByClassName('date')[0];
-
-  let d = new Date(diva.getElementsByClassName('date')[0].outerText);
-
-  if ( d == "NaN" ){
-    d = Date.now()
-    d = d + 2592000000;
-  }
-
-  let e = d.getFullYear().toString()+(d.getMonth()+1)+ d.getDate().toString();
-  e = e.replaceAll('0', '((');
-  e = e.replaceAll('1', '()');
-  e = e.replaceAll('2', '(-');
-  e = e.replaceAll('3', '([');
-  e = e.replaceAll('4', '(]');
-  e = e.replaceAll('5', ')(');
-  e = e.replaceAll('6', '))');
-  e = e.replaceAll('7', ')-');
-  e = e.replaceAll('8', ')[');
-  e = e.replaceAll('9', ')]');
-  e = e.replaceAll('NaN', ']]');
-
-  let text = "'" + window.location.href.split('?')[0] + "','" + date.outerText + "','" + e + "','" + name.outerText + "','" + divb.outerText + "','" + divc.outerText + "'";
-
-  name = name.outerText;
-  name = name.replaceAll('/',' ');
-  name = name.replaceAll('\\',' ');
-  name = name.replaceAll(':',' ');
-  name = name.replaceAll('*',' ');
-  name = name.replaceAll('?',' ');
-  name = name.replaceAll('<',' ');
-  name = name.replaceAll('>',' ');
-  name = name.replaceAll('|',' ');
-  name = name.replaceAll('"',' ');
-
-  let download = document.createElement('a');
-  download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-  download.setAttribute('download', e + name + '.short' );
-
-  download.style.display = 'none';
-  document.body.appendChild(download);
-  download.click();
-  document.body.removeChild(download);
-
-}
-
 addBtns();
-setTimeout(document.getElementById("fvBtn").addEventListener("click", makeShort), 4000); //add event Listener after element exists
