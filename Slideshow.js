@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Slideshow
 // @namespace   Violentmonkey Scripts
-// @version     0.0.0
+// @version     1.0.0
 // @grant       GM_registerMenuCommand
 // @grant       GM_unregisterMenuCommand
 // @grant       GM_addValueChangeListener
@@ -10,6 +10,7 @@
 // @grant       GM_addStyle
 // @run-at      document-idle
 // @description Makes a slideshow of your selected webpages.
+// @downloadURL https://github.com/DanielLester83/SteamJavascriptHelpers/raw/refs/heads/main/Slideshow.js
 // ==/UserScript==
 
 /* //There's a newer feature to add different domain page to page transitions, ref:https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using#a_javascript-powered_custom_cross-document_mpa_transition
