@@ -5,6 +5,7 @@
 // @grant       GM_addStyle
 // @run-at      document-idle
 // @version     1.0.0
+// @downloadURL https://github.com/DanielLester83/SteamJavascriptHelpers/raw/refs/heads/main/CSS/store.steampowered.com.js
 // ==/UserScript==
 
 GM_addStyle(`
